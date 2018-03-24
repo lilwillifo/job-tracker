@@ -40,7 +40,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'launchy'
+  gem 'pry'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   gem 'rspec-rails'
 end
 
