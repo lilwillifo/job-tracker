@@ -2,8 +2,3 @@ All Jobs for <strong><%= @company.name %></strong>
 
 <h1>Existing contacts</h1>
 <%= render partial: 'companies/contact', collection: @company.contacts %>
-<% @company.contacts.each do |contact| %>
-  <ul><%= contact.name %></ul>
-  <ul><%= contact.role %></ul>
-  <ul><%= contact.email %></ul>
-<% end %>
