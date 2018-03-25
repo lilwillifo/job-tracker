@@ -3,7 +3,8 @@ require 'rails_helper'
 describe "User sees a specific job" do
   scenario "a user sees a job for a specific company" do
     company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+    category = Category.create!(title: 'Dev')
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category_id: category.id)
     comment_1 = job.comments.create!(content: 'here is my comment')
     comment_2 = job.comments.create!(content: 'two commentz!')
 
@@ -20,7 +21,8 @@ describe "User sees a specific job" do
   describe "they fill in a comment form" do
     it "displays the comment on the article show" do
       company = Company.create!(name:'my kewl company')
-      job = company.jobs.create!(title: 'Title', level_of_interest: 50, city: 'Canada')
+      category = Category.create!(title: 'Dev')
+      job = company.jobs.create!(title: 'Title', level_of_interest: 50, city: 'Canada', category_id: category.id)
 
       visit company_job_path(company, job)
 

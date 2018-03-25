@@ -1,4 +1,12 @@
-<%= form_for [@company, @job] do |f| %>
+<%= form_for [@company, @job, @categories] do |f| %>
+  <%= f.label :category_id %>
+
+  <select name="job[category_id]" id='categories'>
+    <% @categories.each do |category| %>
+      <option value ="<%= category.id %>"> <%= category.title %></option>
+    <% end %>
+  </select></br>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 
