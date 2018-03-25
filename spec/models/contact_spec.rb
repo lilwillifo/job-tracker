@@ -2,13 +2,6 @@ require 'rails_helper'
 
 describe Contact do
   describe 'validations' do
-    describe 'relationships' do
-      it 'belongs to a company' do
-        company = Company.new(name: 'Dropbox')
-
-        expect(company).to respond_to(:contacts)
-      end
-    end
     context "invalid attributes" do
       it "is invalid without a name" do
         contact = Contact.new(name: '', role: 'Chief', email: 'chief@aol.com')
@@ -37,6 +30,12 @@ describe Contact do
         expect(contact).to be_valid
       end
     end
+  end
+   describe 'relationships' do
+     it 'belongs to a company' do
+       company = Company.new(name: 'Dropbox')
 
+      expect(company).to respond_to(:contacts)
+    end
   end
 end
