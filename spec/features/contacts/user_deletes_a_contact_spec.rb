@@ -8,7 +8,10 @@ describe 'user deletes a contact' do
       contact_2 = company.contacts.create!(name: 'Jim', role: 'CFO', email: 'Jim@boss.com')
 
       visit company_path(company)
-      click_link 'Delete'
+
+      within(".contact_#{contact_1.id}") do
+        click_link 'Delete'
+      end
 
       expect(current_path).to eq(company_path(company))
       expect(page).to have_content(contact_2.name)
