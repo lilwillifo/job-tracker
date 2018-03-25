@@ -1,5 +1,5 @@
 All Jobs for <strong><%= @company.name %></strong>
 
 <%= render partial: 'contacts/form' %>
-<h1>Existing contacts</h1>
+<h1>Existing contacts (<%= @company.contacts.size %>)</h1>
 <%= render partial: 'companies/contact', collection: @company.contacts %>
