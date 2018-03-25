@@ -19,7 +19,10 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @contact = Contact.new
+    @contact.company_id = @company.id
+  end
 
   def edit; end
 
