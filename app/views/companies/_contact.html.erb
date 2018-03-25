@@ -1,4 +1,5 @@
 <% @company.contacts.each do |contact| %>
+  <%= link_to 'Delete', company_contact_path(contact), method: :delete %>
   <ul><%= contact.name %></ul>
   <ul><%= contact.role %></ul>
   <ul><%= contact.email %></ul>

@@ -3,9 +3,9 @@ require 'rails_helper'
 describe 'user deletes a contact' do
   describe 'they visit a company show page' do
     it 'displays all contacts without the deleted entry' do
-      company = Company.new(name: 'Dropbox')
-      contact_1 = company.contact.create!(name: 'Jan', role: 'Boss', email: 'Jan@boss.com')
-      contact_2 = company.contact.create!(name: 'Jim', role: 'CFO', email: 'Jim@boss.com')
+      company = Company.create!(name: 'Dropbox')
+      contact_1 = company.contacts.create!(name: 'Jan', role: 'Boss', email: 'Jan@boss.com')
+      contact_2 = company.contacts.create!(name: 'Jim', role: 'CFO', email: 'Jim@boss.com')
 
       visit company_path(company)
       click_link 'Delete'

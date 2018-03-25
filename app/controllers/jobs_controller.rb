@@ -1,4 +1,7 @@
 class JobsController < ApplicationController
+  before_action :set_job, only: [:show, :destroy, :edit, :update]
+
+
   def index
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
@@ -6,7 +9,7 @@ class JobsController < ApplicationController
 
   def new
     @company = Company.find(params[:company_id])
-    @job = Job.new()
+    @job = Job.new
   end
 
   def create
@@ -21,19 +24,16 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
     @company = @job.company
     @comment = Comment.new
     @comment.job_id = @job.id
   end
 
   def edit
-    @job = Job.find(params[:id])
     @company = @job.company
   end
 
   def update
-    @job = Job.find(params[:id])
     @company = @job.company
     @job.update(job_params)
     if @job.save
@@ -45,10 +45,9 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    job = Job.find(params[:id])
-    job.destroy
+    @job.destroy
 
-    flash[:success] = "#{job.title} was successfully deleted!"
+    flash[:success] = "#{@job.title} was successfully deleted!"
     redirect_to companies_path
   end
 
@@ -56,5 +55,9 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
+  end
+
+  def set_job
+    @job = Job.find(params[:id])
   end
 end
