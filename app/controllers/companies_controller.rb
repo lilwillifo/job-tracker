@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :set_company, only: [:show, :destroy, :edit, :update]
+
   def index
     @companies = Company.all
   end
@@ -17,16 +19,11 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def show
-    @company = Company.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @company = Company.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @company = Company.find(params[:id])
     @company.update(company_params)
     if @company.save
       flash[:success] = "#{@company.name} updated!"
@@ -37,8 +34,7 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
-    company = Company.find(params[:id])
-    company.destroy
+    @company.destroy
 
     flash[:success] = "#{company.name} was successfully deleted!"
     redirect_to companies_path
@@ -49,5 +45,9 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:name, :city)
+  end
+
+  def set_company
+    @company = Company.find(params[:id])
   end
 end
