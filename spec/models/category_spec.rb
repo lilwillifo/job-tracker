@@ -7,6 +7,12 @@ describe Category do
         category = Category.new
         expect(category).to be_invalid
       end
+      it 'is invalid with duplicate title' do
+        category_1 = Category.create!(title: 'abc')
+        category_2 = Category.new(title: 'abc')
+
+        expect(category_2).to be_invalid
+      end
     end
 
     context "valid attributes" do
