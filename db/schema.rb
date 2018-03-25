@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325021825) do
+ActiveRecord::Schema.define(version: 20180325120123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,10 +50,7 @@ ActiveRecord::Schema.define(version: 20180325021825) do
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
-<<<<<<< HEAD
-  add_foreign_key "contacts", "companies"
-=======
   add_foreign_key "comments", "jobs"
->>>>>>> master
+  add_foreign_key "contacts", "companies"
   add_foreign_key "jobs", "companies"
 end
