@@ -11,19 +11,19 @@ describe Contact do
     end
     context "invalid attributes" do
       it "is invalid without a name" do
-        contact = Contact.new(name: '', role: 'Chief', email: 'chief@aol.com')
+        contact = Contact.new(role: 'Chief', email: 'chief@aol.com')
 
         expect(contact).to be_invalid
       end
 
       it "is invalid without a role" do
-        contact = Contact.new(name: 'Bob', role: '', email: 'chief@aol.com')
+        contact = Contact.new(name: 'Bob', email: 'chief@aol.com')
 
         expect(contact).to be_invalid
       end
 
       it "is invalid without an email" do
-        contact = Contact.new(name: 'Bob', role: 'Chief', email: '')
+        contact = Contact.new(name: 'Bob', role: 'Chief')
 
         expect(contact).to be_invalid
       end
