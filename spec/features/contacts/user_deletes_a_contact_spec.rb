@@ -8,7 +8,7 @@ describe 'user deletes a contact' do
       contact_2 = company.contacts.create!(name: 'Jim', role: 'CFO', email: 'Jim@boss.com')
 
       visit company_path(company)
-
+      binding.pry
       within(".contact_#{contact_1.id}") do
         click_link 'Delete'
       end
