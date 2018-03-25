@@ -1,5 +1,11 @@
 All Jobs for <strong><%= @company.name %></strong>
 
+<ul>
 <% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
+  <li class=job_<%= job.id %>>
+  <%= link_to job.title, company_job_path(job.company, job) %> at <%= job.company.name %>
+  <%= link_to "Edit", edit_company_job_path(job.company, job) %>
+  <%= link_to "Delete", company_job_path(job.company, job), method: "delete" %>
+  </li>
 <% end %>
+</ul>
