@@ -3,7 +3,8 @@ require 'rails_helper'
 describe "User edits an existing job" do
   scenario "a user can edit a job" do
     company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "CoolJob", level_of_interest: 90, city: "Denver")
+    category = Category.create!(title: 'Dev')
+    job = company.jobs.create!(title: "CoolJob", level_of_interest: 90, city: "Denver", category_id: category.id)
 
     visit edit_company_job_path(company, job)
 
@@ -19,7 +20,8 @@ describe "User edits an existing job" do
   end
   scenario 'a user can get to edit page from jobs page' do
     company = Company.create!(name: "company")
-    job = company.jobs.create!(title: "JobbyMcJoberson", level_of_interest: 40, city: 'New Orleans')
+    category = Category.create!(title: 'Dev')
+    job = company.jobs.create!(title: "JobbyMcJoberson", level_of_interest: 40, city: 'New Orleans', category_id: category.id)
 
     visit company_jobs_path(company)
 
@@ -31,7 +33,8 @@ describe "User edits an existing job" do
   end
   scenario 'a user can get to edit page from job show page' do
     company = Company.create!(name: "company")
-    job = company.jobs.create!(title: "JobbyMcJoberson", level_of_interest: 40, city: 'New Orleans')
+    category = Category.create!(title: 'Dev')
+    job = company.jobs.create!(title: "JobbyMcJoberson", level_of_interest: 40, city: 'New Orleans', category_id: category.id)
 
     visit company_job_path(company, job)
 
