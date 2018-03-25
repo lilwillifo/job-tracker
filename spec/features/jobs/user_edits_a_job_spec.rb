@@ -17,4 +17,26 @@ describe "User edits an existing job" do
     expect(page).to_not have_content('CoolJob')
     expect(page).to_not have_content('Denver')
   end
+  scenario 'a user can get to edit page from jobs page' do
+    company = Company.create!(name: "company")
+    job = company.jobs.create!(title: "JobbyMcJoberson", level_of_interest: 40, city: 'New Orleans')
+
+    visit company_jobs_path(company)
+
+    within(".job_#{job.id}") do
+      click_link 'Edit'
+    end
+
+    expect(current_path).to eq(edit_company_job_path(company, job))
+  end
+  scenario 'a user can get to edit page from job show page' do
+    company = Company.create!(name: "company")
+    job = company.jobs.create!(title: "JobbyMcJoberson", level_of_interest: 40, city: 'New Orleans')
+
+    visit company_job_path(company, job)
+
+      click_link 'Edit'
+
+    expect(current_path).to eq(edit_company_job_path(company, job))
+  end
 end

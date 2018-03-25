@@ -12,4 +12,5 @@ City: <%= @job.city %>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
-<%= link_to "Delete", company_job_path(@job.company), method: "delete" %>
+<%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
+<%= link_to "Delete", company_job_path(@job.company, @job), method: "delete" %>
