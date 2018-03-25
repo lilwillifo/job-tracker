@@ -5,6 +5,8 @@ describe 'User sees one company' do
     company = Company.create!(name: 'ESPN')
     contact_1 = company.contacts.create!(name: 'Bob', role: 'Manager', email: 'Bob@espn.com')
     contact_2 = company.contacts.create!(name: 'Jan', role: 'CFO', email: 'Jan@espn.com')
+    category = Category.create!(title: 'stuff')
+    company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver", category_id: category.id)
 
     visit company_path(company)
 

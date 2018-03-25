@@ -30,7 +30,6 @@ class JobsController < ApplicationController
   def edit
     @job = Job.find(params[:id])
     @company = @job.company
-    # implement on your own!
   end
 
   def update
@@ -56,6 +55,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
   end
 end
