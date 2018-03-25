@@ -28,8 +28,8 @@ describe 'User sees one company' do
       fill_in 'contact[email]', with: 'boss@me.com'
       click_on 'Submit'
 
-      expect(current_path).to eq(article_path(article))
-      expect(page).to have_content('Post a Comment')
+      expect(current_path).to eq(company_path(company))
+      expect(page).to have_content('Create a Contact')
       expect(page).to have_content('ME!')
       expect(page).to have_content('Boss')
       expect(page).to have_content('boss@me.com')
