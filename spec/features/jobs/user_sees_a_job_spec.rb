@@ -13,6 +13,7 @@ describe "User sees a specific job" do
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
     expect(page).to have_content("70")
+    expect(page).to have_content(category.title)
     expect(page).to have_content(comment_1.content)
     expect(page).to have_content(comment_1.created_at)
     expect(page).to have_content(comment_2.content)
