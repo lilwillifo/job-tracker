@@ -2,7 +2,7 @@
 
 <%= form_for [ @company, @job, @comment ] do |f| %>
   <p>
-    <%= f.label :content %><br/>
+    <%= f.label :content, 'Your Comment' %><br/>
     <%= f.text_area :content %>
   </p>
   <p>
