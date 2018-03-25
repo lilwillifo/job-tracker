@@ -44,6 +44,8 @@ class JobsController < ApplicationController
   end
 
   def destroy
+    @job.company.destroy if @job.company.jobs.length == 1
+    
     @job.destroy
 
     flash[:success] = "#{@job.title} was successfully deleted!"

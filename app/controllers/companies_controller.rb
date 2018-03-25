@@ -37,6 +37,9 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
+    @company.jobs.each do |job|
+      job.destroy
+    end
     @company.destroy
 
     flash[:success] = "#{@company.name} was successfully deleted!"
