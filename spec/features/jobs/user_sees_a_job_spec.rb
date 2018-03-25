@@ -17,4 +17,18 @@ describe "User sees a specific job" do
     expect(page).to have_content(comment_2.content)
     expect(page).to have_content(comment_2.created_at)
   end
+  describe "they fill in a comment form" do
+    it "displays the comment on the article show" do
+      company = Company.create!(name:'my kewl company')
+      job = company.jobs.create!(title: 'Title', level_of_interest: 50, city: 'Canada')
+
+      visit company_job_path(company, job)
+
+      fill_in 'comment[content]', with: 'I applied to zee job!'
+      click_on 'Submit'
+
+      expect(current_path).to eq(company_job_path(company, job))
+      expect(page).to have_content('I applied to zee job!')
+    end
+  end
 end
