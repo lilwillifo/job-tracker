@@ -1,0 +1,4 @@
+<h3>Edit <%= @contact.name %></h3>
+<%= render partial: 'contacts/form' %>
+<h1>Existing contacts (<%= @contact.company.contacts.size %>)</h1>
+<%= render partial: 'companies/contact', collection: @contact.company.contacts %>
