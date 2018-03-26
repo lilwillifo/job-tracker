@@ -4,7 +4,12 @@ describe "User edits an existing contact" do
   scenario "a user can edit a contact" do
     company = Company.create!(name: 'Popeye\'s')
     contact = company.contacts.create!(name: 'Mork', role: 'Nanu Nanu', email: 'rw@mork.com')
-    visit edit_company_contact_path(company, contact)
+
+    visit company_path(company)
+
+    within(".contact_#{contact.id}") do
+      click_link 'Edit'
+    end
 
     fill_in 'contact[name]', with: 'ME!'
     fill_in 'contact[role]', with: 'Boss'
