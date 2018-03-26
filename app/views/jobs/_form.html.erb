@@ -10,7 +10,7 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
-  <%= f.label :level_of_interest %>
+  <%= f.label :level_of_interest, "Rating (1-10)" %>
   <%= f.number_field :level_of_interest, in: 1..10, step: 1 %>
 
   <%= f.label :city %>
