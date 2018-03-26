@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+body {
+  font-family: 'Gothic L', sans-serif;
+}
+
+header {
+  line-height: 100px;
+  height: 100px;
+  border: solid black;
+  background-color: grey;
+}
+
+table {
+  margin: 25px;
+  border-collapse: separate;
+  border-spacing: 15px 15px;
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  margin: auto;
+}

@@ -31,7 +31,7 @@ describe 'User sees one company' do
       click_on 'Create'
 
       expect(current_path).to eq(company_path(company))
-      expect(page).to have_content('Create a Contact')
+      expect(page).to have_content('Existing contacts')
       expect(page).to have_content('ME!')
       expect(page).to have_content('Boss')
       expect(page).to have_content('boss@me.com')

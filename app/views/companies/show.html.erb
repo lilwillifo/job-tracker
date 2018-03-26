@@ -1,9 +1,9 @@
-All Jobs for <strong><%= @company.name %></strong>
+<header>
+  <h1><%= @company.name %></h1>
+</header>
 
-<% @company.jobs.each do |job| %>
-  <ul><%= job.title %></ul>
-<% end %>
-<h3>Create a Contact</h3>
+<%= link_to "Edit", edit_company_path(@company) %>
+<%= link_to "Delete", company_path(@company), method: "delete" %>
 <%= render partial: 'contacts/form' %>
-<h1>Existing contacts (<%= @company.contacts.size %>)</h1>
+<h2>Existing contacts (<%= @company.contacts.size %>)</h2>
 <%= render partial: 'companies/contact', collection: @company.contacts %>
