@@ -12,6 +12,7 @@ describe "User deletes existing job" do
 
     expect(page).to have_content("CoolJob was successfully deleted!")
     expect(current_path).to eq(companies_path)
+    expect(Company.all.count).to eq(0)
   end
   scenario 'a user can delete from jobs page' do
     company = Company.create!(name: "company")
@@ -27,6 +28,7 @@ describe "User deletes existing job" do
 
     expect(page).to have_content("#{job_1.title} was successfully deleted!")
     expect(current_path).to eq(companies_path)
+    expect(Company.all.count).to eq(1)
   end
   scenario 'a user can delete from job show page' do
     company = Company.create!(name: "company")
