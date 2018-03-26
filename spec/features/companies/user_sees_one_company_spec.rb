@@ -28,7 +28,7 @@ describe 'User sees one company' do
       fill_in 'contact[name]', with: 'ME!'
       fill_in 'contact[role]', with: 'Boss'
       fill_in 'contact[email]', with: 'boss@me.com'
-      click_on 'Submit'
+      click_on 'Create'
 
       expect(current_path).to eq(company_path(company))
       expect(page).to have_content('Create a Contact')
