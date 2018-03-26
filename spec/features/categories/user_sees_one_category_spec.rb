@@ -11,7 +11,13 @@ describe 'User sees one category' do
 
     expect(current_path).to eq("/categories/#{category.id}")
     expect(page).to have_content(category.title)
-    expect(page).to have_content('abc')
-    expect(page).to have_content('def')
+    expect(page).to have_content(job_1.title)
+    expect(page).to have_content(job_1.company.name)
+    expect(page).to have_content(job_1.level_of_interest)
+    expect(page).to have_content(job_1.city)
+    expect(page).to have_content(job_2.title)
+    expect(page).to have_content(job_2.company.name)
+    expect(page).to have_content(job_2.level_of_interest)
+    expect(page).to have_content(job_2.city)
   end
 end
