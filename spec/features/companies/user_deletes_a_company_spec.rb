@@ -4,8 +4,8 @@ describe "User deletes existing company" do
   scenario "a user can delete a company" do
     company = Company.create(name: "ESPN")
     category = Category.create(title: 'wowowow')
-    job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category_id: category.id)
-    job_2 = company.jobs.create!(title: "super cool job", level_of_interest: 32, city: "Charlottesville", category_id: category.id)
+    job_1 = company.jobs.create!(title: "Developer", level_of_interest: 4, city: "Denver", category_id: category.id)
+    job_2 = company.jobs.create!(title: "super cool job", level_of_interest: 8, city: "Charlottesville", category_id: category.id)
     visit companies_path
 
     within(".company_#{company.id}") do

@@ -1,4 +1,8 @@
-Category: <%= @category.title %>
-Jobs: <% @category.jobs.each do |job| %>
-          <%= job.title %>
-      <% end %>
+<%= @category.title %> Jobs
+
+<% @category.jobs.each do |job| %>
+  Role: <%= job.title %>
+  Company: <%= job.company.name %>
+  City: <%= job.city %>
+  Interest: <%= job.level_of_interest %>
+<% end %>

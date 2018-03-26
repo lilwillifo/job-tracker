@@ -2,6 +2,7 @@
 
   <%= f.label :category_id %>
   <%= f.collection_select :category_id, Category.all, :id, :title %>
+  <%= link_to 'Create a New Category', new_category_path %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -9,8 +10,8 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
-  <%= f.label :level_of_interest %>
-  <%= f.number_field :level_of_interest %>
+  <%= f.label :level_of_interest, "Rating (1-10)" %>
+  <%= f.number_field :level_of_interest, in: 1..10, step: 1 %>
 
   <%= f.label :city %>
   <%= f.text_field :city %>
