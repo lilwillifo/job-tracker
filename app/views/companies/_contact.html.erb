@@ -6,7 +6,7 @@
     <th>E-mail</th>
 
     <ul class=contact_<%= contact.id %>>
-      <%= link_to 'Delete', company_contact_path(contact), method: :delete %></ul>
+      <%= link_to 'Delete', company_contact_path(contact.company, contact), method: :delete %></ul>
       <ul><%= contact.name %></ul>
       <ul><%= contact.role %></ul>
       <ul><%= contact.email %></ul>
