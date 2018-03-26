@@ -1,13 +1,16 @@
-
-    <th>Edit</th>
-    <th>Delete</th>
+<table>
+  <tr>
+    <th></th>
+    <th></th>
     <th>Name</th>
     <th>Role</th>
     <th>E-mail</th>
-
-    <ul class=contact_<%= contact.id %>>
-      <%= link_to 'Edit', edit_company_contact_path(contact.company, contact) %>
-      <%= link_to 'Delete', company_contact_path(contact.company, contact), method: :delete %></ul>
-      <ul><%= contact.name %></ul>
-      <ul><%= contact.role %></ul>
-      <ul><%= contact.email %></ul>
+  </tr>
+  <tr class=contact_<%= contact.id %>>
+    <td><%= link_to 'Edit', edit_company_contact_path(contact.company, contact) %></td>
+    <td><%= link_to 'Delete', company_contact_path(contact.company, contact), method: :delete %></td>
+    <td><%= contact.name %></td>
+    <td><%= contact.role %></td>
+    <td><%= contact.email %></td>
+  </tr>
+</table>
