@@ -1,9 +1,4 @@
-All Jobs for <strong><%= @company.name %></strong>
-
-<% @company.jobs.each do |job| %>
-  <ul><%= job.title %></ul>
-<% end %>
-<h3>Create a Contact</h3>
+<h3>Edit <%= @contact.name %></h3>
 <%= render partial: 'contacts/form' %>
 <h1>Existing contacts (<%= @company.contacts.size %>)</h1>
 <%= render partial: 'companies/contact', collection: @company.contacts %>

@@ -1,6 +1,6 @@
 # app/controllers/contacts_controller.rb
 class ContactsController < ApplicationController
-  before_action :set_contact, only: %i[destroy]
+  before_action :set_contact, only: %i[destroy edit]
 
   def create
     @contact = Contact.new(contact_params)
@@ -10,6 +10,8 @@ class ContactsController < ApplicationController
 
     redirect_to company_path(@contact.company)
   end
+
+  def edit; end
 
   def destroy
     @company = Company.find(params[:company_id])
