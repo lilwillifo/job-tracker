@@ -8,7 +8,7 @@
     <table>
       <% (1..10).each do |num| %>
       <tr>
-        <td> <%= "*" * num %> (<%= Job.count_by_level_of_interest(num) %> jobs)</td>
+        <td> <%= "*" * num %> (<%= @jobs.count_by_level_of_interest(num) %> jobs)</td>
       </tr>
       <% end %>
     </table>
@@ -26,5 +26,13 @@
   </div>
   <div class='item'>
     <h2> Jobs by Location</h2>
+    <table>
+      <% @job_locations.each do |location, count| %>
+      <tr>
+        <td><%= location %></td>
+        <td> (<%= count %> jobs)</td>
+      </tr>
+      <% end %>
+    </table>
   </div>
     </main>
