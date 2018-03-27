@@ -8,7 +8,7 @@ class Job < ApplicationRecord
     Job.where(level_of_interest: level_of_interest).count
   end
 
-  def self.sort_by_location
+  def self.group_by_location
     group(:city).count
   end
 end

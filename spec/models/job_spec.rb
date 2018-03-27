@@ -71,7 +71,7 @@ describe Job do
       expect(Job.count_by_level_of_interest(8)).to eq(2)
       expect(Job.count_by_level_of_interest(9)).to eq(1)
     end
-    it '.sort_by_location' do
+    it '.group_by_location' do
       company = Company.create!(name: 'Google')
       category = Category.create!(title: 'x')
       company.jobs.create!(title: 'x', level_of_interest: 4, description: 'x', city: 'Denver', category: category)
@@ -79,9 +79,9 @@ describe Job do
       company.jobs.create!(title: 'x', level_of_interest: 4, description: 'x', city: 'Seattle', category: category)
 
 
-      expect(Job.sort_by_location['Denver']).to eq(2)
-      expect(Job.sort_by_location['Seattle']).to eq(1)
-      expect(Job.sort_by_location['Portland']).to eq(nil)
+      expect(Job.group_by_location['Denver']).to eq(2)
+      expect(Job.group_by_location['Seattle']).to eq(1)
+      expect(Job.group_by_location['Portland']).to eq(nil)
     end
   end
 end
