@@ -15,7 +15,8 @@ describe 'user deletes a contact' do
 
       expect(current_path).to eq(company_path(company))
       expect(page).to have_content(contact_2.name)
-      expect(page).to_not have_content(contact_1.name)
+      expect(page).to have_content('Jan was successfully deleted!')
+      expect(page).to_not have_content(contact_1.role)
     end
   end
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "User edits an existing contact" do
-  scenario "a user can edit a contact" do
+describe 'user edits an existing contact' do
+  scenario 'a user can edit a contact' do
     company = Company.create!(name: 'Popeye\'s')
     contact = company.contacts.create!(name: 'Mork', role: 'Nanu Nanu', email: 'rw@mork.com')
 
@@ -17,11 +17,12 @@ describe "User edits an existing contact" do
     click_on 'Update'
 
     expect(current_path).to eq(company_path(company))
-    expect(page).to have_content("ME!")
-    expect(page).to_not have_content("Mork")
-    expect(page).to have_content("Boss")
-    expect(page).to_not have_content("Nanu Nanu")
-    expect(page).to have_content("boss@me.com")
-    expect(page).to_not have_content("rw@mork.com")
+    expect(page).to have_content('ME! updated!')
+    expect(page).to have_content('ME!')
+    expect(page).to_not have_content('Mork')
+    expect(page).to have_content('Boss')
+    expect(page).to_not have_content('Nanu Nanu')
+    expect(page).to have_content('boss@me.com')
+    expect(page).to_not have_content('rw@mork.com')
   end
 end
