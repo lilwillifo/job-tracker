@@ -9,7 +9,7 @@ describe 'user visits the dashboard' do
     expect(page).to have_content('Top Companies by Interest')
   end
   context 'which displays correct stats' do
-    it 'like the count of jobs by level of interest' do
+    context 'like the count of jobs by level of interest' do
       it '.count_by_level_of_interest' do
         company = Company.create!(name: 'Google')
         category = Category.create!(title: 'x')
@@ -26,6 +26,8 @@ describe 'user visits the dashboard' do
         company.jobs.create!(title: 'x', level_of_interest: 8, description: 'x', city: 'x', category: category)
         company.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'x', category: category)
 
+        visit dashboard_index_path
+        
         expect(page).to have_content('* (0 jobs)')
         expect(page).to have_content('** (0 jobs)')
         expect(page).to have_content('*** (0 jobs)')
