@@ -15,16 +15,58 @@
  */
 body {
   font-family: 'Gothic L', sans-serif;
+  background-color: #F1F4F1;
+  color: #424B54;
+}
+
+nav {
+  display:flex;
+  justify-content: flex-end;
+  line-height: 60px;
+  height: 60px;
+  background-color: #FDCFBF;
+  color: #FFFFFF;
 }
 
 header {
-  line-height: 100px;
-  height: 100px;
-  border: solid black;
-  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 15px;
+  line-height: 80px;
+  height: 80px;
+  background-color: #FDCFBF;
+}
+a {
+  color: #181C1F;
+}
+a.button {
+	display: flex;
+  justify-content: center;
+	background-color: #3FE2CD;
+  text-transform: uppercase;
+  text-decoration: none;
+	font-size: 12px;
+	padding: 10px 30px;
+	border-radius: 5px;
+	border: 3px solid #ACA499;
+  width: 75px;
+}
+
+a.button:hover {
+  background-color: #818D92;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-top: 15px;
 }
 
 table {
+  display: flex;
+  justify-content: left;
   margin: 25px;
   border-collapse: separate;
   border-spacing: 15px 15px;
@@ -36,4 +78,9 @@ th {
 
 td {
   margin: auto;
+}
+
+.icon {
+  height: 15px;
+  width: 15px;
 }
