@@ -5,10 +5,12 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.company_id = params[:company_id]
-
-    @contact.save
-
-    redirect_to company_path(@contact.company)
+    if @contact.save
+      flash[:success] = "#{@contact.name} added!"
+      redirect_to company_path(@contact.company)
+    else
+      render :new
+    end
   end
 
   def edit; end
@@ -27,6 +29,7 @@ class ContactsController < ApplicationController
   def destroy
     @company = Company.find(params[:company_id])
     @contact.destroy
+    flash[:success] = "#{@contact.name} was successfully deleted!"
     redirect_to company_path(@company)
   end
 
