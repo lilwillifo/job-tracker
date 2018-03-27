@@ -13,9 +13,11 @@
     <h2>Top Companies by Interest</h2>
     <table>
       <% @top_companies.each do |company| %>
-      <td>
-        <%= company.name %>
-      </td>
+      <tr>
+        <td><%= company.name %></td>
+        <td> (<%= company.average_level %>)</td>
+      </tr>
+
       <% end %>
     </table>
 </main>

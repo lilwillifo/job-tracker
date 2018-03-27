@@ -51,17 +51,4 @@ describe Company do
       expect(Company.top_companies_by_interest.last.name).to eq(company_4.name)
     end
   end
-
-  describe 'instance methods' do
-    it '.average_interest_level' do
-      company = Company.create!(name: 'Amazon')
-      category = Category.create!(title: 'categoryyy')
-
-      company.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'x', category: category)
-      company.jobs.create!(title: 'x', level_of_interest: 8, description: 'x', city: 'x', category: category)
-      company.jobs.create!(title: 'x', level_of_interest: 2, description: 'x', city: 'x', category: category)
-
-      expect(company.average_interest_level).to eq(6.3)
-    end
-  end
 end

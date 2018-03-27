@@ -10,8 +10,4 @@ class Company < ApplicationRecord
       .order('average_level DESC')
       .limit(3)
   end
-
-  def average_interest_level
-    jobs.average(:level_of_interest) ? jobs.average(:level_of_interest).round(1) : 0
-  end
 end
