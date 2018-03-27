@@ -12,7 +12,10 @@
     </table>
     <h2>Top Companies by Interest</h2>
     <table>
+      <% @top_companies.each do |company| %>
       <tr>
+        <%= company.name %>
       </tr>
+      <% end %>
     </table>
 </main>
