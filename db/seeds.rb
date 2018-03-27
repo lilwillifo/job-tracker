@@ -15,7 +15,7 @@ COMPANIES.each do |name|
   company = Company.create!(name: name)
   puts "Created #{company.name}"
   10.times do |num|
-    company.jobs.create!(title: JOBS.sample, description: "What a great position!", level_of_interest: num + rand(10), city: CITIES.sample, category_id: @categories[rand(0.5)].id)
+    company.jobs.create!(title: JOBS.sample, description: "What a great position!", level_of_interest: rand(1..10), city: CITIES.sample, category_id: @categories[rand(0..5)].id)
     puts "  Created #{company.jobs[num].title}"
   end
 end

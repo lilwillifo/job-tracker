@@ -1,9 +1,10 @@
 <header>
   <h1><%= @company.name %></h1>
 </header>
-
-<%= link_to "Edit", edit_company_path(@company) %>
-<%= link_to "Delete", company_path(@company), method: "delete" %>
-<%= render partial: 'contacts/form' %>
-<h2>Existing contacts (<%= @company.contacts.size %>)</h2>
-<%= render partial: 'companies/contact', collection: @company.contacts %>
+<main>
+  <%= link_to "Edit", edit_company_path(@company) %>
+  <%= link_to "Delete", company_path(@company), method: "delete" %>
+  <%= render partial: 'contacts/form' %>
+  <h2>Existing contacts (<%= @company.contacts.size %>)</h2>
+  <%= render partial: 'companies/contact', collection: @company.contacts %>>
+</main>

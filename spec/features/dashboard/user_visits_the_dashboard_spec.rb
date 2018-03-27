@@ -27,7 +27,7 @@ describe 'user visits the dashboard' do
         company.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'x', category: category)
 
         visit dashboard_index_path
-        
+
         expect(page).to have_content('* (0 jobs)')
         expect(page).to have_content('** (0 jobs)')
         expect(page).to have_content('*** (0 jobs)')
