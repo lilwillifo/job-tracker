@@ -1,5 +1,7 @@
 <header>
   <h1>Edit <%= @job.title %></h1>
 </header>
-
-<%= render partial: "form" %>
+<main>
+  <%= link_to 'Create a New Category', new_category_path %></br>
+  <%= render partial: "form" %>
+</main>

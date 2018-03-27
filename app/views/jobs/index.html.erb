@@ -1,11 +1,17 @@
-All Jobs for <strong><%= @company.name %></strong>
-
-<ul>
-<% @jobs.each do |job| %>
-  <li class=job_<%= job.id %>>
-  <%= link_to job.title, company_job_path(job.company, job) %> at <%= job.company.name %>
-  <%= link_to "Edit", edit_company_job_path(job.company, job) %>
-  <%= link_to "Delete", company_job_path(job.company, job), method: "delete" %>
-  </li>
-<% end %>
-</ul>
+<header>
+  <h1>All Jobs for <%= @company.name %></h1>
+</header>
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>Role</th>
+  </tr>
+  <% @jobs.each do |job| %>
+    <tr class=job_<%= job.id %>>
+      <td><%= link_to "Edit", edit_company_job_path(job.company, job) %></td>
+      <td><%= link_to "Delete", company_job_path(job.company, job), method: "delete" %></td>
+      <td><%= link_to job.title, company_job_path(job.company, job) %></td>
+    </tr>
+  <% end %>
+</table>

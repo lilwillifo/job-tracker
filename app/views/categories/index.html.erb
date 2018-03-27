@@ -1,11 +1,22 @@
-<h3>All Categories</h3>
+<header>
+  <h1>All Categories</h1>
+</header>
+<main>
+  <a class= 'button' href=<%= new_category_path %>>add a new category</a>
 
-<ul>
-  <% @categories.each do |category| %>
-  <li class=category_<%= category.id %>>
-    <%= link_to category.title, category_path(category) %>:
-    <%= link_to "Edit", edit_category_path(category) %>
-    <%= link_to "Delete", category_path(category), method: "delete" %>
-  </li>
-  <% end %>
-</ul>
+
+  <table>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Title</th>
+    </tr>
+    <% @categories.each do |category| %>
+    <tr class=category_<%= category.id %>>
+      <td><%= link_to "Edit", edit_category_path(category) %></td>
+      <td><%= link_to "Delete", category_path(category), method: "delete" %></td>
+      <td><%= link_to category.title, category_path(category) %></td>
+    </tr>
+    <% end %>
+  </table>
+</main>
