@@ -29,7 +29,7 @@
     <table>
       <% @job_locations.each do |location, count| %>
       <tr>
-        <td><%= location %></td>
+        <td><%= link_to location, "/jobs?location=#{location}" %></td>
         <td> (<%= count %> jobs)</td>
       </tr>
       <% end %>
