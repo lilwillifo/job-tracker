@@ -12,7 +12,7 @@
     </tr>
     <% @category.jobs.each do |job| %>
     <tr>
-      <td><%= job.title %></td>
+      <td><%= link_to "#{job.title}", company_job_path(job.company, job) %></td>
       <td><%= job.company.name %></td>
       <td><%= job.city %></td>
       <td><%= job.level_of_interest %></td>
