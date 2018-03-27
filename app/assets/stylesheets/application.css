@@ -101,6 +101,22 @@ form input[type=submit] {
   cursor: pointer;
 }
 
-form input[type=submit]:hover {
+form a {
+  display: flex;
+  justify-content: center;
+  background-color: #3C454D;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 10px 30px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 3px solid #ACA499;
+  width: 85px;
+  cursor: pointer;
+}
+
+form input[type=submit]:hover, a:hover {
   background-color: #818D92;
 }
