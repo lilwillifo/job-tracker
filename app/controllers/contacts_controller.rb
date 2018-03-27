@@ -27,6 +27,7 @@ class ContactsController < ApplicationController
   def destroy
     @company = Company.find(params[:company_id])
     @contact.destroy
+    flash[:success] = "#{@contact.name} was successfully deleted!"
     redirect_to company_path(@company)
   end
 
