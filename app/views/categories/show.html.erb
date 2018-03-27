@@ -1,8 +1,22 @@
-<%= @category.title %> Jobs
+<header>
+  <h1><%= @category.title %> Jobs</h1>
+</header>
 
-<% @category.jobs.each do |job| %>
-  Role: <%= job.title %>
-  Company: <%= job.company.name %>
-  City: <%= job.city %>
-  Interest: <%= job.level_of_interest %>
-<% end %>
+<main>
+  <table>
+    <tr>
+      <th>Role</th>
+      <th>Company</th>
+      <th>City</th>
+      <th>Rating</th>
+    </tr>
+    <% @category.jobs.each do |job| %>
+    <tr>
+      <td><%= job.title %></td>
+      <td><%= job.company.name %></td>
+      <td><%= job.city %></td>
+      <td><%= job.level_of_interest %></td>
+    </tr>
+    <% end %>
+  </table>
+</main>
