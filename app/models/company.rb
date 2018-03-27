@@ -10,5 +10,4 @@ class Company < ApplicationRecord
       .order('average_level DESC')
       .limit(3)
   end
-
 end

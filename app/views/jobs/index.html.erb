@@ -1,5 +1,8 @@
 <header>
-  <h1>All Jobs for <%= @company.name %></h1>
+  <h1>All Jobs </h1>
+  <% if @company %>
+<h1> for <%= @company.name %></h1>
+<% end %>
 </header>
 <table>
   <tr>

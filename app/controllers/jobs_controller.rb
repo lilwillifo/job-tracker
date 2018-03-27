@@ -2,8 +2,12 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :destroy, :edit, :update]
 
   def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+      @jobs = @company.jobs
+    else
+      @jobs = Job.all
+    end
   end
 
   def new
@@ -45,7 +49,7 @@ class JobsController < ApplicationController
 
   def destroy
     @job.company.destroy if @job.company.jobs.length == 1
-    
+
     @job.destroy
 
     flash[:success] = "#{@job.title} was successfully deleted!"

@@ -9,6 +9,7 @@ describe "User sees a specific job" do
     comment_2 = job.comments.create!(content: 'two commentz!')
 
     visit company_job_path(company, job)
+    save_and_open_page
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
