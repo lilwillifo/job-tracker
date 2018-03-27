@@ -25,10 +25,9 @@ describe 'user creates a new contact from a form' do
 
     fill_in 'contact[name]', with: 'ME!'
     fill_in 'contact[role]', with: 'Boss'
-    fill_in 'contact[email]', with: 'not real'
+    fill_in 'contact[email]', with: 'notvalid'
     click_on 'Create'
 
-
-    expect(page).to have_content('boss@me.com')
+    expect(Contact.where(name: 'ME!')).to_not be_present
   end
 end
