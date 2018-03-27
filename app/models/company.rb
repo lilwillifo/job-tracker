@@ -12,6 +12,10 @@ class Company < ApplicationRecord
   end
 
   def average_interest_level
-    self.jobs.average(:level_of_interest).round(2)
+    if self.jobs.average(:level_of_interest)
+      self.jobs.average(:level_of_interest).round(1)
+    else
+      0
+    end
   end
 end

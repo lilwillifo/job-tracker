@@ -60,8 +60,8 @@ describe Company do
       company.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'x', category: category)
       company.jobs.create!(title: 'x', level_of_interest: 8, description: 'x', city: 'x', category: category)
       company.jobs.create!(title: 'x', level_of_interest: 2, description: 'x', city: 'x', category: category)
-
-      expect(company.average_interest_level).to eq(6.33)
+      
+      expect(company.average_interest_level).to eq(6.3)
 
     end
   end
