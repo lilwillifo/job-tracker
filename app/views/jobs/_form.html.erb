@@ -1,22 +1,22 @@
-<ul>
+<div>
   <%= form_for [@company, @job] do |f| %>
 
-    <li><%= f.label :category_id %>
+    <%= f.label :category_id %>
     <%= f.collection_select :category_id, Category.all, :id, :title %>
-    <%= link_to 'Create a New Category', new_category_path %></li>
 
-    <li><%= f.label :title %>
-    <%= f.text_field :title %></li>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-    <li><%= f.label :description %>
-    <%= f.text_field :description %></li>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
 
-    <li><%= f.label :level_of_interest, "Rating (1-10)" %>
-    <%= f.number_field :level_of_interest, in: 1..10, step: 1 %></li>
+    <%= f.label :level_of_interest, "Rating (1-10)" %>
+    <%= f.number_field :level_of_interest, in: 1..10, step: 1 %>
 
-    <li><%= f.label :city %>
-    <%= f.text_field :city %></li>
+    <%= f.label :city %>
+    <%= f.text_field :city %></br></br>
 
-    <li><%= f.submit %></li>
+    <%= f.submit %></br>
+    <a href=<%= companies_path %>>Cancel</a>
   <% end %>
-</ul>
+</div>

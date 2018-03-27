@@ -1,5 +1,7 @@
 <header>
-  <h1>Add Job<%= @company.name %></h1>
+  <h1>Add Job</h1>
 </header>
-
-<%= render partial: "form" %>
+<main>
+  <%= link_to 'Create a New Category', new_category_path %></br>
+  <%= render partial: "form" %>
+</main>
