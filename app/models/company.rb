@@ -11,11 +11,4 @@ class Company < ApplicationRecord
       .limit(3)
   end
 
-  def average_interest_level
-    if self.jobs.average(:level_of_interest)
-      self.jobs.average(:level_of_interest).round(1)
-    else
-      0
-    end
-  end
 end
