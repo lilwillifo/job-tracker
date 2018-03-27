@@ -5,6 +5,8 @@ class JobsController < ApplicationController
     if params[:company_id]
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
+    elsif params[:location]
+      @jobs = Job.where(city: params[:location])
     else
       @jobs = Job.all
     end
