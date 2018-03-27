@@ -45,6 +45,7 @@ describe 'User sees all jobs' do
 
     visit "/jobs?location=Denver"
 
+    expect(page).to have_content('All Jobs in Denver')
     expect(page).to have_content('Developer')
     expect(page).to_not have_content('QA Analyst')
     expect(page).to have_content('Dev')
