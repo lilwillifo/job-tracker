@@ -53,6 +53,16 @@ describe 'user naviagates the site with navbar' do
 
     expect(current_path).to eq(new_category_path)
   end
+  scenario 'and can go to the new job page' do
+    company = Company.create!(name: "ESPN")
+    category = Category.create!(title: 'Finance')
+    job = company.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'x', category: category)
+
+    visit companies_path
+    click_on 'New Job'
+
+    expect(current_path).to eq(new_job_path)
+  end
   scenario 'and can go to the dashboard' do
     company = Company.create!(name: "ESPN")
     category = Category.create!(title: 'Finance')

@@ -1,7 +1,13 @@
 <nav>
   <div class="links">
     <%= link_to "Dashboard", dashboard_index_path %>
-    <%= link_to "Jobs", jobs_path %>
+    <div class="dropdown">
+      <%= link_to "Jobs", jobs_path, class: 'dropbtn' %>
+      <i class="fa fa-caret-down"></i>
+      <div class="dropdown-content">
+        <%= link_to "New Job", new_job_path %>
+      </div>
+    </div>
     <div class="dropdown">
       <%= link_to "Companies", companies_path, class: "dropbtn" %>
       <i class="fa fa-caret-down"></i>

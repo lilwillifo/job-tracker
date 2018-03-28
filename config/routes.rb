@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
   resources :categories
-  resources :jobs, only: %i[index]
+  resources :jobs, only: %i[index new create]
   resources :dashboard, only: %i[index]
   root 'welcome#index'
 

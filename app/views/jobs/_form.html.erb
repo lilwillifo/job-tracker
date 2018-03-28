@@ -4,6 +4,9 @@
     <%= f.label :category_id %>
     <%= f.collection_select :category_id, Category.all, :id, :title %></br>
 
+    <%= f.label :company_id %>
+    <%= f.collection_select :company_id, Company.all, :id, :name %></br>
+
     <%= f.label :title %>
     <%= f.text_field :title %></br>
 
