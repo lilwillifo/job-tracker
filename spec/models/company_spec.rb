@@ -41,7 +41,7 @@ describe Company do
       company_3 = Company.create!(name: 'Yahoo')
       company_4 = Company.create!(name: 'Facebook')
       category = Category.create!(title: 'x')
-      company_1.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'x', category: category)
+      company_1.jobs.create!(title: 'x', level_of_interest: 10, description: 'x', city: 'x', category: category)
       company_2.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'x', category: category)
       company_3.jobs.create!(title: 'x', level_of_interest: 2, description: 'x', city: 'x', category: category)
       company_4.jobs.create!(title: 'x', level_of_interest: 8, description: 'x', city: 'x', category: category)
