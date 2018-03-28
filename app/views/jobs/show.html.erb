@@ -12,8 +12,8 @@
       <th>City</th>
     </tr>
     <tr>
-      <td><%= link_to "Edit", edit_company_job_path(@job.company, @job) %></td>
-      <td><%= link_to "Delete", company_job_path(@job.company, @job), method: "delete" %></td>
+      <td><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_company_job_path(@job.company, @job) %></td>
+      <td><%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, company_job_path(@job.company, @job), method: "delete" %></td>
       <td><%= @job.category.title %></td>
       <td><%= @job.description %></td>
       <td><%= @job.level_of_interest %></td>
@@ -21,7 +21,7 @@
     </tr>
 
   </table>
-  
+
   <h3>Comments (<%= @job.comments.size %>)</h3>
   <%= render partial: 'jobs/comment', collection: @job.comments.reverse %>
   <%= render partial: 'comments/form' %>

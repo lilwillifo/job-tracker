@@ -6,7 +6,7 @@ describe "User deletes existing category" do
     visit categories_path
 
     within(".category_#{category.id}") do
-      click_link "Delete"
+      find(:xpath, ".//a[i[contains(@class, 'fas fa-trash-alt')]]").click
     end
 
     expect(page).to have_content("le category was successfully deleted!")

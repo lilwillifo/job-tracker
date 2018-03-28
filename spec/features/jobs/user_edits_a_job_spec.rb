@@ -26,7 +26,7 @@ describe "User edits an existing job" do
     visit company_jobs_path(company)
 
     within(".job_#{job.id}") do
-      click_link 'Edit'
+      find(:xpath, ".//a[i[contains(@class, 'far fa-edit')]]").click
     end
 
     expect(current_path).to eq(edit_company_job_path(company, job))
@@ -37,8 +37,7 @@ describe "User edits an existing job" do
     job = company.jobs.create!(title: "JobbyMcJoberson", level_of_interest: 4, city: 'New Orleans', category_id: category.id)
 
     visit company_job_path(company, job)
-
-      click_link 'Edit'
+    find(:xpath, ".//a[i[contains(@class, 'far fa-edit')]]").click
 
     expect(current_path).to eq(edit_company_job_path(company, job))
   end

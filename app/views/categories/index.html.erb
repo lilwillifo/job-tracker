@@ -13,8 +13,8 @@
     </tr>
     <% @categories.each do |category| %>
     <tr class=category_<%= category.id %>>
-      <td><%= link_to "Edit", edit_category_path(category) %></td>
-      <td><%= link_to "Delete", category_path(category), method: "delete" %></td>
+      <td><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_category_path(category) %></td>
+      <td><%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, category_path(category), method: "delete" %></td>
       <td><%= link_to category.title, category_path(category) %></td>
     </tr>
     <% end %>

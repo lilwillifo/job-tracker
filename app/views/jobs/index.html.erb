@@ -29,7 +29,7 @@
   </tr>
   <% @jobs.each do |job| %>
     <tr class=job_<%= job.id %>>
-      <td><%= link_to "Edit", edit_company_job_path(job.company, job) %></td>
+      <td><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_company_job_path(job.company, job) %></td>
       <td><%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, company_job_path(job.company, job), method: "delete" %></td>
       <td><%= link_to job.title, company_job_path(job.company, job) %></td>
       <td><%= link_to job.company.name, company_path(job.company) %></td>

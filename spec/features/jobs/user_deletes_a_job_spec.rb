@@ -8,7 +8,7 @@ describe "User deletes existing job" do
 
     visit company_job_path(company, job)
 
-    click_link "Delete"
+    find(:xpath, ".//a[i[contains(@class, 'fas fa-trash-alt')]]").click
 
     expect(page).to have_content("CoolJob was successfully deleted!")
     expect(current_path).to eq(companies_path)
@@ -37,7 +37,7 @@ describe "User deletes existing job" do
 
     visit company_job_path(company, job)
 
-    click_link 'Delete'
+    find(:xpath, ".//a[i[contains(@class, 'fas fa-trash-alt')]]").click
 
     expect(page).to have_content("JobbyMcJoberson was successfully deleted!")
     expect(current_path).to eq(companies_path)

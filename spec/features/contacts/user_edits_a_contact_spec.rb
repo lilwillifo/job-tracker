@@ -8,7 +8,7 @@ describe 'user edits an existing contact' do
     visit company_path(company)
 
     within(".contact_#{contact.id}") do
-      click_link 'Edit'
+      find(:xpath, ".//a[i[contains(@class, 'far fa-edit')]]").click
     end
 
     fill_in 'contact[name]', with: 'ME!'
