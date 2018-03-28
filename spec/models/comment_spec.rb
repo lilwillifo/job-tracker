@@ -24,4 +24,14 @@ describe Comment do
       expect(comment).to respond_to(:job)
     end
   end
+
+  describe 'class methods' do
+    it '.time_format' do
+      comment = Comment.new(content: 'commenty content comment', created_at: Time.now)
+
+      expected = comment.created_at.strftime("%b %d, %Y %k:%M %P")
+
+      expect(comment.time_format).to eq(expected)
+    end
+  end
 end
