@@ -31,4 +31,17 @@ describe 'User sees one category' do
 
     expect(current_path).to eq(company_job_path(company, job_1))
   end
+  it 'can link to a location' do
+    category = Category.create!(title: 'stuff')
+    company = Company.create(name: 'company')
+    job_1 = company.jobs.create!(title: 'abc', description: '123', level_of_interest: 4, city: "Denver", category_id: category.id)
+    job_2 = company.jobs.create!(title: 'def', description: '456', level_of_interest: 5, city: "Seattle", category_id: category.id)
+
+    visit category_path(category)
+
+    click_on 'Denver'
+
+    expect(current_path).to eq(jobs_path)
+    expect(page).to have_content('All Jobs in Denver')
+  end
 end

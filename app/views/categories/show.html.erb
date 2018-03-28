@@ -14,7 +14,7 @@
     <tr>
       <td><%= link_to "#{job.title}", company_job_path(job.company, job) %></td>
       <td><%= job.company.name %></td>
-      <td><%= job.city %></td>
+      <td><%= link_to job.city, "/jobs?location=#{job.city}" %></td>
       <td><%= job.level_of_interest %></td>
     </tr>
     <% end %>

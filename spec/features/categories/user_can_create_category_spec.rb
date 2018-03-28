@@ -20,7 +20,7 @@ describe 'User creates a new category' do
     click_button 'Create'
 
     expect(current_path).to eq('/categories')
-    expect(page).to have_content('Sorry, that category name already exists!')
+    expect(page).to have_content("Sorry, try again! Please fill in all fields and make sure that category name doesn't already exist!")
     expect(Category.count).to eq(1)
   end
 end

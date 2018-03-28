@@ -17,7 +17,7 @@
       <td><%= @job.category.title %></td>
       <td><%= @job.description %></td>
       <td><%= @job.level_of_interest %></td>
-      <td><%= @job.city %></td>
+      <td><%= link_to @job.city, "/jobs?location=#{@job.city}" %></td>
     </tr>
 
   </table>

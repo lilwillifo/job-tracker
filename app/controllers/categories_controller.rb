@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
       flash[:success] = "#{@category.title} added!"
       redirect_to categories_path
     else
-      flash[:error] = 'Sorry, that category name already exists!'
+      flash[:error] = "Sorry, try again! Please fill in all fields and make sure that category name doesn't already exist!"
       render :new
     end
   end
