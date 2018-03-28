@@ -29,9 +29,6 @@ describe 'User sees all jobs' do
 
     visit jobs_path
 
-    within "nav" do
-      expect(page).to have_content('Categories')
-    end
     expect(page).to have_content('Developer')
     expect(page).to have_content('QA Analyst')
     expect(page).to have_content('Dev')
