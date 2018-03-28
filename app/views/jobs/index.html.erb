@@ -12,6 +12,9 @@
     <th></th>
     <th></th>
     <th>Role</th>
+    <th>Company</th>
+    <th><%= link_to 'City', "/jobs?sort=city"%></th>
+    <th> <%= link_to 'Interest', "/jobs?sort=interest" %></th>
   </tr>
   <% @jobs.each do |job| %>
     <tr class=job_<%= job.id %>>
