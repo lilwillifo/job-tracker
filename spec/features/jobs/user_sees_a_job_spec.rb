@@ -15,9 +15,9 @@ describe "User sees a specific job" do
     expect(page).to have_content("7")
     expect(page).to have_content(category.title)
     expect(page).to have_content(comment_1.content)
-    expect(page).to have_content(comment_1.created_at)
+    expect(page).to have_content(comment_1.time_format)
     expect(page).to have_content(comment_2.content)
-    expect(page).to have_content(comment_2.created_at)
+    expect(page).to have_content(comment_2.time_format)
   end
   describe "they fill in a comment form" do
     it "displays the comment on the article show" do
