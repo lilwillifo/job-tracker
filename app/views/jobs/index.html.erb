@@ -1,13 +1,32 @@
 <header>
   <h1>All Jobs
   <% if @company %>
- for <%= @company.name %>
-<% end %>
-<% if @location %>
- in <%= @location %></h1>
-<% end %>
+    for <%= @company.name %>
+  <% end %>
+  <% if @location %>
+    in <%= @location %></h1>
+  <% end %>
 </header>
-<main>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>Role</th>
+    <th><%= link_to 'Company' , "jobs?sort=company"%></th>
+    <th><%= link_to 'City', "/jobs?sort=location"%></th>
+    <th> <%= link_to 'Interest', "/jobs?sort=interest" %></th>
+  </tr>
+  <% @jobs.each do |job| %>
+    <tr class=job_<%= job.id %>>
+      <td><%= link_to "Edit", edit_company_job_path(job.company, job) %></td>
+      <td><%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, company_job_path(job.company, job), method: "delete" %></td>
+      <td><%= link_to job.title, company_job_path(job.company, job) %></td>
+      <td><%= link_to job.company.name, company_path(job.company) %></td>
+      <td><%= link_to job.city, "/jobs?location=#{job.city}" %></td>
+      <td><%= job.level_of_interest %></td>
+  <% end %>
+
   <% if @company %>
   <a class= 'button' href=<%= new_company_job_path(@company) %>>add a new job</a>
   <% end %>

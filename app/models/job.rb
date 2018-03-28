@@ -5,7 +5,7 @@ class Job < ApplicationRecord
   belongs_to :category
 
   def self.count_by_level_of_interest(level_of_interest)
-    Job.where(level_of_interest: level_of_interest).count
+    where(level_of_interest: level_of_interest).count
   end
 
   def self.group_by_location
@@ -18,7 +18,7 @@ class Job < ApplicationRecord
     elsif string == 'interest'
       order(:level_of_interest).reverse
     else
-      Job.all
+      all
     end
   end
 end

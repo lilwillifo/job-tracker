@@ -8,7 +8,7 @@
     <table>
       <% (1..10).each do |num| %>
       <tr>
-        <td> <%= "*" * (11-num) %> (<%= @jobs.count_by_level_of_interest(11-num) %> jobs)</td>
+        <td> <%= "*" * (num) %> (<%= @jobs.count_by_level_of_interest(num) %> jobs)</td>
       </tr>
       <% end %>
     </table>
