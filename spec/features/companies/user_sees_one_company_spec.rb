@@ -44,7 +44,7 @@ describe 'User sees one company' do
       job = company.jobs.create!(title: "Hacker", level_of_interest: 10, city: "Denver", category_id: category.id)
       visit company_path(company)
 
-      click_on 'Jobs'
+      click_on 'See All Jobs'
 
       expect(current_path).to eq(company_jobs_path(company))
       expect(page).to have_content(job.title)

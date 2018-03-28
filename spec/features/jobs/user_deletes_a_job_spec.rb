@@ -23,7 +23,7 @@ describe "User deletes existing job" do
     visit company_jobs_path(company)
 
     within(".job_#{job_1.id}") do
-      click_link 'Delete'
+      find(:xpath, ".//a[i[contains(@class, 'fas fa-trash-alt')]]").click
     end
 
     expect(page).to have_content("#{job_1.title} was successfully deleted!")
