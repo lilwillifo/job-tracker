@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     end
   end
   resources :categories
-  resources :jobs, only: %i[index new]
+  resources :jobs, only: %i[index]
   resources :dashboard, only: %i[index]
 end
