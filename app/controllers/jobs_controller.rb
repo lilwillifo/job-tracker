@@ -11,7 +11,7 @@ class JobsController < ApplicationController
     elsif params[:sort]
       @jobs = Job.sort(params[:sort])
     else
-      @jobs = Job.all
+      @jobs = Job.order(:title)
     end
   end
 
@@ -23,7 +23,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.create(job_params)
     if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
+      flash[:success] = "You created #{@job.title} at #{@job.company.name}"
       redirect_to jobs_path
     else
       flash[:error] = "Try again! Please fill in all the fields."

@@ -22,7 +22,7 @@
       <th>City</th>
       <th> Interest</th>
     <% else %>
-      <th><%= link_to 'Company' , "jobs?sort=company"%></th>
+      <th>Company</th>
       <th><%= link_to 'City', "/jobs?sort=location"%></th>
       <th> <%= link_to 'Interest', "/jobs?sort=interest" %></th>
     <% end %>
