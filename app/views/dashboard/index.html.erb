@@ -2,14 +2,18 @@
   <h1>Job Tracker</h1>
 </header>
 <main>
+  <div class = 'dashboard'>
+    <div class='item'>
     <h2>Jobs by Interest</h2>
     <table>
       <% (1..10).each do |num| %>
       <tr>
-        <td> <%= "*" * num %> (<%= Job.count_by_level_of_interest(num) %> jobs)</td>
+        <td> <%= "*" * (11-num) %> (<%= @jobs.count_by_level_of_interest(11-num) %> jobs)</td>
       </tr>
       <% end %>
     </table>
+  </div>
+  <div class ='item'>
     <h2>Top Companies by Interest</h2>
     <table>
       <% @top_companies.each do |company| %>
@@ -17,7 +21,18 @@
         <td><%= company.name %></td>
         <td> (<%= company.average_level %>)</td>
       </tr>
-
       <% end %>
     </table>
-</main>
+  </div>
+  <div class='item'>
+    <h2> Jobs by Location</h2>
+    <table>
+      <% @job_locations.each do |location, count| %>
+      <tr>
+        <td><%= link_to location, "/jobs?location=#{location}" %></td>
+        <td> (<%= count %> jobs)</td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+    </main>

@@ -124,3 +124,18 @@ form a {
 form input[type=submit]:hover, a:hover {
   background-color: #818D92;
 }
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-grow: 2;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  margin: 10px;
+  border-style: solid;
+}

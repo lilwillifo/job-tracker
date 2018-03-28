@@ -27,6 +27,7 @@ describe 'user visits the dashboard' do
         company.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'x', category: category)
 
         visit dashboard_index_path
+
         expect(page).to have_content('* (0 jobs)')
         expect(page).to have_content('** (0 jobs)')
         expect(page).to have_content('*** (0 jobs)')
@@ -57,6 +58,25 @@ describe 'user visits the dashboard' do
         expect(page).to have_content("#{company_2.name} (9.0)")
         expect(page).to have_content("#{company_4.name} (8.0)")
         expect(page).to_not have_content(company_3.name)
+      end
+    end
+
+    context 'like the locations and their jobs' do
+      it '.sort_by_location' do
+        company_1 = Company.create!(name: 'Google')
+        company_2 = Company.create!(name: 'Amazon')
+        company_3 = Company.create!(name: 'Yahoo')
+        company_4 = Company.create!(name: 'Facebook')
+        category = Category.create!(title: 'x')
+        job = company_1.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'Denver', category: category)
+        company_2.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'Denver', category: category)
+        company_3.jobs.create!(title: 'x', level_of_interest: 2, description: 'x', city: 'Denver', category: category)
+        job_2 =company_4.jobs.create!(title: 'x', level_of_interest: 8, description: 'x', city: 'Seattle', category: category)
+
+        visit dashboard_index_path
+
+        expect(page).to have_content("#{job.city} (3 jobs)")
+        expect(page).to have_content("#{job_2.city} (1 jobs)")
       end
     end
   end

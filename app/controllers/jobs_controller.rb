@@ -5,6 +5,11 @@ class JobsController < ApplicationController
     if params[:company_id]
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
+    elsif params[:location]
+      @jobs = Job.where(city: params[:location])
+      @location = params[:location]
+    elsif params[:sort]
+      @jobs = Job.sort(params[:sort])
     else
       @jobs = Job.all
     end
@@ -60,6 +65,10 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
+  end
+
+  def set_params
+    params.permit(:sort)
   end
 
   def set_job

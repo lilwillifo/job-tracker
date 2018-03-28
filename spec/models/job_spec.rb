@@ -71,5 +71,30 @@ describe Job do
       expect(Job.count_by_level_of_interest(8)).to eq(2)
       expect(Job.count_by_level_of_interest(9)).to eq(1)
     end
+    it '.group_by_location' do
+      company = Company.create!(name: 'Google')
+      category = Category.create!(title: 'x')
+      company.jobs.create!(title: 'x', level_of_interest: 4, description: 'x', city: 'Denver', category: category)
+      company.jobs.create!(title: 'x', level_of_interest: 4, description: 'x', city: 'Denver', category: category)
+      company.jobs.create!(title: 'x', level_of_interest: 4, description: 'x', city: 'Seattle', category: category)
+
+
+      expect(Job.group_by_location['Denver']).to eq(2)
+      expect(Job.group_by_location['Seattle']).to eq(1)
+      expect(Job.group_by_location['Portland']).to eq(nil)
+    end
+    it '.sort' do
+      company = Company.create!(name: 'Google')
+      category = Category.create!(title: 'x')
+      d = company.jobs.create!(title: 'd', level_of_interest: 2, description: 'x', city: 'Denver', category: category)
+      a = company.jobs.create!(title: 'a', level_of_interest: 3, description: 'x', city: 'Albany', category: category)
+      z = company.jobs.create!(title: 'z', level_of_interest: 4, description: 'x', city: 'Seattle', category: category)
+
+
+      expect(Job.sort('interest').first).to eq(z)
+      expect(Job.sort('interest').last).to eq(d)
+      expect(Job.sort('location').first).to eq(a)
+      expect(Job.sort('location').last).to eq(z)
+    end
   end
 end

@@ -37,4 +37,17 @@ describe 'User sees one company' do
       expect(page).to have_content('boss@me.com')
     end
   end
+  describe 'they can link to jobs' do
+    it 'sends them to company jobs page' do
+      company = Company.create!(name: 'Dropbox')
+      category = Category.create!(title: 'Funz')
+      job = company.jobs.create!(title: "Hacker", level_of_interest: 10, city: "Denver", category_id: category.id)
+      visit company_path(company)
+
+      click_on 'Jobs'
+
+      expect(current_path).to eq(company_jobs_path(company))
+      expect(page).to have_content(job.title)
+    end
+  end
 end
