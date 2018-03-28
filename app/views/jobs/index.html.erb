@@ -10,6 +10,8 @@
 
 <% if @company %>
 <a class= 'button' href=<%= new_company_job_path(@company) %>>add a new job</a>
+<<% else %>
+<a class= 'button' href=<%= new_job_path(@company) %>>add a new job</a>
 <% end %>
 
 <table>
