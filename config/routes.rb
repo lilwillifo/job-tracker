@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :jobs, only: [:index]
   resources :dashboard, only: [:index]
-
+  root 'welcome#index'
 
     # The priority is based upon order of creation: first created -> highest priority.
 
