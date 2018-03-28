@@ -16,9 +16,9 @@
   <div class ='item'>
     <h2>Top Companies by Interest</h2>
     <table>
-      <% @top_companies.each_with_index do |company, index| %>
+      <% @top_companies.each do |company| %>
       <tr>
-        <td><%= link_to company.name, company_path(@top_company_ids[index])%></td>
+        <td><%= link_to company.name, company_path(company)%></td>
         <td> (<%= company.average_level %> avg)</td>
       </tr>
       <% end %>
