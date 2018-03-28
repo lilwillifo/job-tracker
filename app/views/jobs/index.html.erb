@@ -7,6 +7,10 @@
  in <%= @location %></h1>
 <% end %>
 </header>
+<% if @company %>
+<a class= 'button' href=<%= new_company_job_path(@company) %>>add a new job</a>
+<% end %>
+
 <table>
   <tr>
     <th></th>
