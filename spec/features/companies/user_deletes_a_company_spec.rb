@@ -9,7 +9,7 @@ describe "User deletes existing company" do
     visit companies_path
 
     within(".company_#{company.id}") do
-      click_link "Delete"
+      find(:xpath, ".//a[i[contains(@class, 'fas fa-trash-alt')]]").click
     end
 
     expect(page).to have_content("ESPN was successfully deleted!")

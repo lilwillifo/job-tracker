@@ -10,7 +10,7 @@ describe 'user deletes a contact' do
       visit company_path(company)
 
       within(".contact_#{contact_1.id}") do
-        click_link 'Delete'
+        find(:xpath, ".//a[i[contains(@class, 'fas fa-trash-alt')]]").click
       end
 
       expect(current_path).to eq(company_path(company))

@@ -7,8 +7,8 @@
     <th>E-mail</th>
   </tr>
   <tr class=contact_<%= contact.id %>>
-    <td><%= link_to 'Edit', edit_company_contact_path(contact.company, contact) %></td>
-    <td><%= link_to 'Delete', company_contact_path(contact.company, contact), method: :delete %></td>
+    <td><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_company_contact_path(contact.company, contact) %></td>
+    <td><%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, company_contact_path(contact.company, contact), method: :delete %></td>
     <td><%= contact.name %></td>
     <td><%= contact.role %></td>
     <td><%= contact.email %></td>

@@ -23,8 +23,8 @@ class JobsController < ApplicationController
   def create
     @job = Job.create(job_params)
     if @job.save
-      flash[:success] = "You created #{@job.title} at #{@job.company.name}"
-      redirect_to company_job_path(@job.company, @job)
+      flash[:success] = "You created #{@job.title} at #{@company.name}"
+      redirect_to jobs_path
     else
       flash[:error] = "Try again! Please fill in all the fields."
       render :new

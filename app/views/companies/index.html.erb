@@ -12,8 +12,8 @@
     </tr>
     <% @companies.each do |company| %>
     <tr class=company_<%= company.id %>>
-      <td><%= link_to 'Edit', edit_company_path(company) %></td>
-      <td><%= link_to "Delete", company_path(company), method: "delete" %></td>
+      <td><%= link_to "<i class='far fa-edit'></i>".html_safe, edit_company_path(company) %></td>
+      <td><%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, company_path(company), method: "delete" %></td>
       <td><%= link_to company.name, company_path(company) %></td>
     </tr>
     <% end %>
