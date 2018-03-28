@@ -54,9 +54,9 @@ describe 'user visits the dashboard' do
 
         visit dashboard_index_path
 
-        expect(page).to have_content("#{company_1.name} (9.0)")
-        expect(page).to have_content("#{company_2.name} (9.0)")
-        expect(page).to have_content("#{company_4.name} (8.0)")
+        expect(page).to have_content("#{company_1.name} (9.0 avg)")
+        expect(page).to have_content("#{company_2.name} (9.0 avg)")
+        expect(page).to have_content("#{company_4.name} (8.0 avg)")
         expect(page).to_not have_content(company_3.name)
       end
     end
