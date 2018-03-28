@@ -10,7 +10,7 @@
       <th>City</th>
       <th>Rating</th>
     </tr>
-    <% @category.jobs.each do |job| %>
+    <% @jobs.each do |job| %>
     <tr>
       <td><%= link_to "#{job.title}", company_job_path(job.company, job) %></td>
       <td><%= job.company.name %></td>

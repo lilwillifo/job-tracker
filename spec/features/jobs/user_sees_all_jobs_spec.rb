@@ -12,6 +12,8 @@ describe 'User sees all jobs' do
     expect(page).to have_content('ESPN')
     expect(page).to have_content('Developer')
     expect(page).to have_content('QA Analyst')
+    expect(page).to have_content('add a new job')
+
   end
   it 'for all the companies' do
     company_one = Company.create!(name: "ESPN")
@@ -33,6 +35,7 @@ describe 'User sees all jobs' do
     expect(page).to have_content('Dentist')
     expect(page).to have_content('Judge')
     expect(page).to have_content('Zoo Keeper')
+    expect(page).to_not have_content('add a new job')
   end
   it 'can seach for jobs by location' do
     company_one = Company.create!(name: "ESPN")
@@ -50,6 +53,7 @@ describe 'User sees all jobs' do
     expect(page).to_not have_content('QA Analyst')
     expect(page).to have_content('Dev')
     expect(page).to have_content('Dentist')
+    expect(page).to_not have_content('add a new job')
   end
 
   it 'can sort the jobs page by location alphabetically' do
