@@ -12,9 +12,15 @@
     <th></th>
     <th></th>
     <th>Role</th>
-    <th><%= link_to 'Company' , "jobs?sort=company"%></th>
-    <th><%= link_to 'City', "/jobs?sort=location"%></th>
-    <th> <%= link_to 'Interest', "/jobs?sort=interest" %></th>
+    <% if @company %>
+      <th>Company</th>
+      <th>City</th>
+      <th> Interest</th>
+    <% else %>
+      <th><%= link_to 'Company' , "jobs?sort=company"%></th>
+      <th><%= link_to 'City', "/jobs?sort=location"%></th>
+      <th> <%= link_to 'Interest', "/jobs?sort=interest" %></th>
+    <% end %>
   </tr>
   <% @jobs.each do |job| %>
     <tr class=job_<%= job.id %>>
