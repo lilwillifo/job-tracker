@@ -1,12 +1,13 @@
 <header>
   <h1>All Jobs
   <% if @company %>
- for <%= @company.name %>
-<% end %>
-<% if @location %>
- in <%= @location %></h1>
-<% end %>
+    for <%= @company.name %>
+  <% end %>
+  <% if @location %>
+    in <%= @location %></h1>
+  <% end %>
 </header>
+
 <table>
   <tr>
     <th></th>
