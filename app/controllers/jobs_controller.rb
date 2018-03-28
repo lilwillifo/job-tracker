@@ -58,7 +58,7 @@ class JobsController < ApplicationController
     @job.destroy
 
     flash[:success] = "#{@job.title} was successfully deleted!"
-    redirect_to companies_path
+    redirect_to jobs_path
   end
 
   private

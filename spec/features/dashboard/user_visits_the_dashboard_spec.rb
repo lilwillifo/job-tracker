@@ -8,6 +8,41 @@ describe 'user visits the dashboard' do
     expect(page).to have_content('Jobs by Interest')
     expect(page).to have_content('Top Companies by Interest')
   end
+  context 'and can link to things' do
+    it 'like the location page' do
+      company_1 = Company.create!(name: 'Google')
+      company_2 = Company.create!(name: 'Amazon')
+      company_3 = Company.create!(name: 'Yahoo')
+      company_4 = Company.create!(name: 'Facebook')
+      category = Category.create!(title: 'x')
+      company_1.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'Cimarron', category: category)
+      company_2.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'Albequerque', category: category)
+      company_3.jobs.create!(title: 'x', level_of_interest: 2, description: 'x', city: 'DENVAAAAA', category: category)
+      company_4.jobs.create!(title: 'x', level_of_interest: 8, description: 'x', city: 'Calgary', category: category)
+      visit dashboard_index_path
+
+      click_on 'Calgary'
+
+      expect(current_path).to eq(jobs_path)
+      expect(page).to have_content('All Jobs in Calgary')
+    end
+    it 'like the company page' do
+      company_1 = Company.create!(name: 'Google')
+      company_2 = Company.create!(name: 'Amazon')
+      company_3 = Company.create!(name: 'Yahoo')
+      company_4 = Company.create!(name: 'Facebook')
+      category = Category.create!(title: 'x')
+      company_1.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'x', category: category)
+      company_2.jobs.create!(title: 'x', level_of_interest: 9, description: 'x', city: 'x', category: category)
+      company_3.jobs.create!(title: 'x', level_of_interest: 2, description: 'x', city: 'x', category: category)
+      company_4.jobs.create!(title: 'x', level_of_interest: 8, description: 'x', city: 'x', category: category)
+      visit dashboard_index_path
+
+      click_on 'Google'
+
+      expect(current_path).to eq(company_path(company_1))
+    end
+  end
   context 'which displays correct stats' do
     context 'like the count of jobs by level of interest' do
       it '.count_by_level_of_interest' do

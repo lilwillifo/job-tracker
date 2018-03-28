@@ -15,6 +15,7 @@ class CompaniesController < ApplicationController
       flash[:success] = "#{@company.name} added!"
       redirect_to company_path(@company)
     else
+      flash[:error] = 'Try again. Please fill in all fields'
       render :new
     end
   end

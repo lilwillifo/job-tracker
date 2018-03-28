@@ -11,7 +11,7 @@ describe "User deletes existing job" do
     find(:xpath, ".//a[i[contains(@class, 'fas fa-trash-alt')]]").click
 
     expect(page).to have_content("CoolJob was successfully deleted!")
-    expect(current_path).to eq(companies_path)
+    expect(current_path).to eq(jobs_path)
     expect(Company.all.count).to eq(0)
   end
   scenario 'a user can delete from jobs page' do
@@ -27,7 +27,7 @@ describe "User deletes existing job" do
     end
 
     expect(page).to have_content("#{job_1.title} was successfully deleted!")
-    expect(current_path).to eq(companies_path)
+    expect(current_path).to eq(jobs_path)
     expect(Company.all.count).to eq(1)
   end
   scenario 'a user can delete from job show page' do
@@ -40,6 +40,6 @@ describe "User deletes existing job" do
     find(:xpath, ".//a[i[contains(@class, 'fas fa-trash-alt')]]").click
 
     expect(page).to have_content("JobbyMcJoberson was successfully deleted!")
-    expect(current_path).to eq(companies_path)
+    expect(current_path).to eq(jobs_path)
   end
 end
