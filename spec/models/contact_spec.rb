@@ -6,7 +6,7 @@ describe Contact do
       it "is invalid without a name" do
         contact = Contact.new(role: 'Chief', email: 'chief@aol.com')
 
-        expect(contact).to be_invalid
+        expect(contact).to_not be_valid
       end
 
       it "is invalid without a role" do

@@ -3,8 +3,10 @@
 </header>
 <main>
   <h2><%= link_to 'See All Jobs', company_jobs_path(@company) %></h2>
-  <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_company_path(@company) %>
-  <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, company_path(@company), method: "delete" %>
+  <div>
+    <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_company_path(@company) %>
+    <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, company_path(@company), method: "delete" %>
+  </div>
   <%= render partial: 'contacts/form' %>
   <h2>Existing contacts (<%= @company.contacts.size %>)</h2>
   <%= render partial: 'companies/contact', collection: @company.contacts %>>
